@@ -32,17 +32,7 @@ let count = 0;
 // plusButton.onclick=() => {
 // } //하나만 실행됨. 
 
-function plus(){
-    count++;
-    resultH1.innerHTML = count;
-}
-
-function plus2(){
-    count+=2;
-    resultH1.innerHTML = count;
-}
-
-function minus(){
-    count--;
+const plus = (number=1) => {
+    count += number;
     resultH1.innerHTML = count;
 }
