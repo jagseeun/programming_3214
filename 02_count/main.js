@@ -23,12 +23,16 @@ const plusButton = document.getElementsByClassName("plusBtn")[0];
 let count = 0;
 
 
-plusButton.addEventListener("click",function () { //()=>{}화살표 함수 사용가능.
-    count++; //count+=1;  //coudnt = count + 1
-    resultH1.innerHTML = count;
-});
+// plusButton.addEventListener("click",function () { //()=>{}화살표 함수 사용가능.
+//     count++; //count+=1;  //coudnt = count + 1
+//     resultH1.innerHTML = count;
+// });
 
-plusButton.onclick=() => {
+
+// plusButton.onclick=() => {
+// } //하나만 실행됨. 
+
+function plus(){
     count++;
     resultH1.innerHTML = count;
-} //하나만 실행됨. 
+}
