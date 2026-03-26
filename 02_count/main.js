@@ -20,7 +20,7 @@
 // const plusButton = document.getElementsByName("button")[0];
 const resultH1 = document.getElementById("result"); //훨씬 빠르다.(왜인지 궁금하네.)
 const plusButton = document.getElementsByClassName("plusBtn")[0];
-let count = 0;
+let count = 100;
 
 
 // plusButton.addEventListener("click",function () { //()=>{}화살표 함수 사용가능.
@@ -28,6 +28,7 @@ let count = 0;
 //     resultH1.innerHTML = count;
 // });
 
+resultH1.innerHTML = count;
 
 // plusButton.onclick=() => {
 // } //하나만 실행됨. 
