@@ -12,6 +12,8 @@ function CounterApp() {
     <>
      <h1>{count}</h1>
      <button onClick={() => setCount((count) => count + 1)}>+</button>
+     <button onClick={() => setCount((count) => count + 2)}>+2</button>
+     <button onClick={() => setCount((count) => count - 1)}>-</button>
       {/* <button
         className="counter"
         onClick={() => setCount((count) => count + 1)} //JS 함수 호출 X 함수 정의
