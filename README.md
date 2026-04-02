@@ -6,3 +6,6 @@ vanilla HTML, JavaScript
 npm create vite@latest .
 ```
 ### CounterApp 시작 😒
+-useSatae()
+-onClick{()=>set함수((tate변수) => state변수+1)}
+-onClick={함수이름}
