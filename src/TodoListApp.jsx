@@ -25,12 +25,25 @@ function TodoListApp() {
             )
         ]);
     }
+    function toggleTodo(id){
+        //let o1 = {a:10, b:20} b수정을 하고 싶음 o1.b=200 변함 깊은 복사 얕은 복사 이렇게 하면 안 먹음.
+        //o1을 스프레드 연산자로 o2에 넣으면 새로 만들어지고 o1과 o2는 다른 객체가 됨 -> 얕은 복사
+        //o1=o2할 시에 주소값을 공유해서 o1과 o2는 같은 객체가 됨 -> 깊은 복사 
+        setTodos((todos)=>
+            
+            //todos에서 하나식 꺼내서, todo, 꺼낸 todo의 id와 파라미터의 id가 같다면,
+            //새 객체 만들어서 todo값 복사, 속성 수정
+            todos.map((todo)=>
+                todo.id===id?{...todo, isCompleted: !todo.isCompleted} : todo
+            )
+        )
+    }
     return (
         <div className="todo">
 
             <TodoHeader/>
             <TodoAdder addTodo={addTodo}/>
-            <TodoList todos={todos}/>
+            <TodoList todos={todos} toggleTodo={toggleTodo}/>
         </div>
     )
 }
