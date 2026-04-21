@@ -60,7 +60,7 @@
     font-size:0.8em;
 }
 
-.todo__item--completed .todo__label{ /*completed 클래스가 있는 todo__item의 자식인 todo__label*/
+.todo__item--complete .todo__label{ /*completed 클래스가 있는 todo__item의 자식인 todo__label*/
     text-decoration: line-through;
     color: #999;
 }

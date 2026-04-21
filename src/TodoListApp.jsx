@@ -17,7 +17,7 @@ function TodoListApp() {
         //이전 todos에 newTodo 만들어서 추가하자 -> 그것을 setTodos() 하자
         setTodos((todos)=>[
             ...todos,  //dotos에 있는 item을 다 꺼내서 새로운 리스트에서 시작
-            todos, 
+            // todos, 
             new Todo(
                 Date.now(),//id: 고유 ID 시간을 이용 == new Date().getTime()과 같음
                 text, //text: 할일 내용
@@ -30,8 +30,7 @@ function TodoListApp() {
 
             <TodoHeader/>
             <TodoAdder addTodo={addTodo}/>
-
-            <TodoList/>
+            <TodoList todos={todos}/>
         </div>
     )
 }
