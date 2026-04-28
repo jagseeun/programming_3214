@@ -10,8 +10,8 @@ npm create vite@latest .
 - onClick{()=>set함수((tate변수) => state변수+1)}
 - onClick={함수이름}
 
-### TodoList App 🌸🌸🌸
-- React Component 분리
+### TodoList App 🌸🌸🌸 [TodoList](https://programming.s2468.workers.dev/)
+- React Component 분리 
 - for -> htmlFor
 - class -> className (자바스크립트의 예약어여서)
 - props -> 자식 요소에게 값을 전달
@@ -27,4 +27,3 @@ npm create vite@latest .
 - `(조건식 && 참)`, `{!조건식 && 거짓}`
 - onKeyDown
 - localStorage, `useEffect()`
-- 배포 링크 : [TodoList](https://programming.s2468.workers.dev/)
