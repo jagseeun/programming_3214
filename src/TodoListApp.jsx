@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import "./todolist.css"
 import Button from "./components/Button.jsx"
 import Checkbox from "./components/Checkbox.jsx"
@@ -15,8 +15,25 @@ class Todo {
         this.isCompleted = isCompleted; // true or false
     }
 }
+const TODOS_STORAGE_KEY = "todos"; //로컬 스토리지에서 사용할 키
 function TodoListApp() {
-    const [todos, setTodos] = useState([]) // Todo 객체들의 배열 (기본값은 빈 배열)
+
+    const initTodos = () => {
+        //localStorage에서 가져오자
+        const savedTodos = localStorage.getItem(TODOS_STORAGE_KEY); //저장된 todos 가져오기
+        //값이 있다면 todos의 초기값 대입하자.
+        //값이 d없으면 []
+        return (!savedTodos)?[]:JSON.parse(savedTodos); //string -> JSON객체 또는 리스트
+        
+
+    }
+    const [todos, setTodos] = useState(initTodos); // Todo 객체들의 배열 (기본값은 빈 배열) ()를 쓰면 새로 그려짐 매번 바뀔때 근데 차이는 없음 꼐속 호출됨. 지우면 처음 실행 될떄만 init이 실행됨. 보통은 괄호 안 씀. 써도 작동은 됨. 근데 내가 보기엔 성능 딸려질듯.
+    //읽어오는거니까 시간이 지체될 수 밖에 없고 최적화를 위해서 ()를 안쓰는게 좋다.
+
+    //todos 변경 시, localStorage에 저장하자
+    useEffect(()=>{
+        localStorage.setItem(TODOS_STORAGE_KEY, JSON.stringify(todos)) //객체나 리스트 -> string
+    }, [todos]);
     function addTodo(text) {
         //이전 todos에 newTodo 만들어서 추가하자 -> 그것을 setTodos() 하자
         setTodos((todos) => [
@@ -61,7 +78,7 @@ function TodoListApp() {
 
             <TodoHeader />
             <TodoAdder addTodo={addTodo} />
-            <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo}/>
+            <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
         </div>
     )
 }
